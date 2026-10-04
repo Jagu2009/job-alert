@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Alert India - Free Job Notifications</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f4f7f5;
+  color:#17221c
+}
+header{
+  background:#0b5d32;
+  color:white;
+  padding:18px;
+  position:sticky;
+  top:0;
+  z-index:10
+}
+.header{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px
+}
+.logo{
+  font-size:22px;
+  font-weight:bold
+}
+nav button{
+  border:0;
+  background:transparent;
+  color:white;
+  padding:9px 12px;
+  cursor:pointer;
+  font-weight:bold
+}
+nav button:hover{
+  background:#16864a;
+  border-radius:8px
+}
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:25px 15px
+}
+.hero{
+  background:white;
+  padding:35px;
+  border-radius:20px;
+  box-shadow:0 5px 20px #0001;
+  margin-bottom:25px
+}
+.hero h1{
+  font-size:45px;
+  margin:5px 0 15px
+}
+.hero span{
+  color:#0b7b40
+}
+.search{
+  display:flex;
+  gap:10px;
+  margin-top:20px
+}
+.search input{
+  flex:1;
+  padding:14px;
+  border:1px solid #ccd8d0;
+  border-radius:10px;
+  font-size:16px
+}
+.btn{
+  border:0;
+  padding:13px 18px;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer
+}
+.search .btn{
+  background:#d9ad35;
+  color:#111
+}
+.categories{
+  display:flex;
+  gap:8px;
+  overflow:auto;
+  margin-bottom:22px
+}
+.cat{
+  white-space:nowrap;
+  padding:10px 15px;
+  border:1px solid #ccd8d0;
+  background:white;
+  border-radius:30px;
+  cursor:pointer
+}
+.cat:hover{
+  background:#0b7b40;
+  color:white
+}
+.jobs{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px
+}
+.job{
+  background:white;
+  padding:20px;
+  border-radius:16px;
+  border:1px solid #dce5df;
+  box-shadow:0 3px 12px #0000000a
+}
+.badge{
+  display:inline-block;
+  background:#e7f5ec;
+  color:#087238;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold
+}
+.new{
+  float:right;
+  background:#fff0cf;
+  color:#8b6500
+}
+.job h2{
+  font-size:20px;
+  margin:15px 0 8px
+}
+.meta{
+  color:#65736b;
+  font-size:14px;
+  line-height:1.7
+}
+.actions{
+  display:flex;
+  gap:8px;
+  margin-top:15px
+}
+.details{
+  background:#edf3ef;
+  color:#173222
+}
+.apply{
+  background:#0b7b40;
+  color:white
+}
+.notice{
+  margin-top:25px;
+  background:#fff8df;
+  border-left:5px solid #d9ad35;
+  padding:15px;
+  border-radius:8px;
+  color:#675626;
+  line-height:1.5
+}
+footer{
+  text-align:center;
+  padding:30px;
+  color:#69766e;
+  font-size:13px
+}
+.hidden{
+  display:none
+}
+@media(max-width:700px){
+  .header{
+    flex-direction:column;
+    align-items:flex-start
+  }
+  nav{
+    overflow:auto;
+    width:100%
+  }
+  .hero h1{
+    font-size:34px
+  }
+  .search{
+    flex-direction:column
+  }
+  .jobs{
+    grid-template-columns:1fr
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="header">
+<div class="logo">💼 JOB ALERT INDIA</div>
+
+<nav>
+<button onclick="showAll()">Home</button>
+<button onclick="filterJobs('Government')">Government</button>
+<button onclick="filterJobs('Railway')">Railway</button>
+<button onclick="filterJobs('Bank')">Bank</button>
+<button onclick="filterJobs('Police')">Police</button>
+<button onclick="filterJobs('Defence')">Defence</button>
+<button onclick="filterJobs('Odisha')">Odisha</button>
+</nav>
+
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+<div style="color:#0b7b40;font-weight:bold">FREE • JOB NOTIFICATION WEBSITE</div>
+
+<h1>Latest <span>Job Notifications</span></h1>
+
+<p>
+Government, Railway, Bank, Police, Defence, Odisha aur Private jobs
+ek hi jagah par.
+</p>
+
+<div class="search">
+<input id="searchBox" placeholder="Job search karo...">
+<button class="btn" onclick="searchJobs()">🔎 Search Jobs</button>
+</div>
+</section>
+
+<div class="categories">
+<button class="cat" onclick="showAll()">All Jobs</button>
+<button class="cat" onclick="filterJobs('Government')">🏛 Government</button>
+<button class="cat" onclick="filterJobs('Railway')">🚆 Railway</button>
+<button class="cat" onclick="filterJobs('Bank')">🏦 Bank</button>
+<button class="cat" onclick="filterJobs('Police')">👮 Police</button>
+<button class="cat" onclick="filterJobs('Defence')">🎖 Defence</button>
+<button class="cat" onclick="filterJobs('Odisha')">🌾 Odisha</button>
+<button class="cat" onclick="filterJobs('Private')">💼 Private</button>
+</div>
+
+<h2>📢 Latest Job Notifications</h2>
+
+<div id="jobs" class="jobs"></div>
+
+<div class="notice">
+<b>⚠️ Important:</b>
+Ye website independent job information website hai.
+Real job apply karne se pehle official recruitment website par
+notification, eligibility, vacancy aur last date verify zaroor karein.
+</div>
+
+</main>
+
+<footer>
+© 2026 Job Alert India • Independent Job Information Website
+</footer>
+
+<script>
+
+const jobs = [
+
+{
+title:"SSC Recruitment Notification",
+cat:"Government",
+org:"Staff Selection Commission",
+date:"Verify Official Notice",
+info:"Government recruitment notification. Vacancy, eligibility aur last date official notice se verify karein."
+},
+
+{
+title:"UPSC Recruitment Notification",
+cat:"Government",
+org:"Union Public Service Commission",
+date:"Verify Official Notice",
+info:"Central government recruitment information."
+},
+
+{
+title:"State Government Job Notification",
+cat:"Government",
+org:"State Government Recruitment",
+date:"Verify Official Notice",
+info:"State level government vacancy information."
+},
+
+{
+title:"RRB Railway Recruitment",
+cat:"Railway",
+org:"Railway Recruitment Board",
+date:"Verify Official Notice",
+info:"Railway recruitment information including different posts."
+},
+
+{
+title:"Railway Group D Notification",
+cat:"Railway",
+org:"Indian Railways",
+date:"Verify Official Notice",
+info:"Railway Group D type recruitment information."
+},
+
+{
+title:"Railway Technician Recruitment",
+cat:"Railway",
+org:"Railway Recruitment",
+date:"Verify Official Notice",
+info:"Technician recruitment information."
+},
+
+{
+title:"SBI Recruitment Notification",
+cat:"Bank",
+org:"State Bank of India",
+date:"Verify Official Notice",
+info:"Banking recruitment information."
+},
+
+{
+title:"IBPS Recruitment Notification",
+cat:"Bank",
+org:"IBPS",
+date:"Verify Official Notice",
+info:"Banking examination and recruitment information."
+},
+
+{
+title:"Bank Clerk Recruitment",
+cat:"Bank",
+org:"Banking Sector",
+date:"Verify Official Notice",
+info:"Bank clerk type recruitment information."
+},
+
+{
+title:"Police Constable Recruitment",
+cat:"Police",
+org:"Police Recruitment",
+date:"Verify Official Notice",
+info:"Police constable recruitment information."
+},
+
+{
+title:"State Police Recruitment",
+cat:"Police",
+org:"State Police",
+date:"Verify Official Notice",
+info:"State police vacancy information."
+},
+
+{
+title:"Police SI Recruitment",
+cat:"Police",
+org:"Police Department",
+date:"Verify Official Notice",
+info:"Sub Inspector recruitment information."
+},
+
+{
+title:"Indian Army Recruitment",
+cat:"Defence",
+org:"Indian Army",
+date:"Verify Official Notice",
+info:"Defence recruitment information. Official notification verify karein."
+},
+
+{
+title:"Indian Air Force Recruitment",
+cat:"Defence",
+org:"Indian Air Force",
+date:"Verify Official Notice",
+info:"Air Force recruitment information."
+},
+
+{
+title:"Indian Navy Recruitment",
+cat:"Defence",
+org:"Indian Navy",
+date:"Verify Official Notice",
+info:"Navy recruitment information."
+},
+
+{
+title:"Odisha Government Job",
+cat:"Odisha",
+org:"Odisha Government",
+date:"Verify Official Notice",
+info:"Odisha government recruitment information."
+},
+
+{
+title:"Odisha Police Recruitment",
+cat:"Odisha",
+org:"Odisha Police",
+date:"Verify Official Notice",
+info:"Odisha Police recruitment information."
+},
+
+{
+title:"Odisha District Job",
+cat:"Odisha",
+org:"Odisha Recruitment",
+date:"Verify Official Notice",
+info:"District level Odisha job information."
+},
+
+{
+title:"Private Company Recruitment",
+cat:"Private",
+org:"Private Sector",
+date:"Check Employer",
+info:"Private company job information. Employer ko verify karein."
+},
+
+{
+title:"Private Office Jobs",
+cat:"Private",
+org:"Private Companies",
+date:"Check Employer",
+info:"Private sector office job information."
+}
+
+];
+
+function displayJobs(list){
+
+const box=document.getElementById("jobs");
+
+if(list.length===0){
+
+box.innerHTML="<div class='job'><h2>No Job Found</h2><p>Search result nahi mila.</p></div>";
+
+return;
+}
+
+box.innerHTML=list.map(job=>`
+
+<div class="job">
+
+<span class="badge">${job.cat}</span>
+<span class="badge new">NEW</span>
+
+<h2>${job.title}</h2>
+
+<div class="meta">
+
+<b>Organization:</b> ${job.org}<br>
+
+<b>Details:</b> ${job.info}<br>
+
+<b>Last Date:</b> ${job.date}
+
+</div>
+
+<div class="actions">
+
+<button class="btn details"
+onclick="alert('Official notification yahan add ki jayegi. Apply karne se pehle official website verify karein.')">
+Official Details
+</button>
+
+<button class="btn apply"
+onclick="alert('Official Apply Link yahan add kiya jayega.')">
+Apply Online
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+function showAll(){
+
+displayJobs(jobs);
+
+}
+
+function filterJobs(category){
+
+const result=jobs.filter(job=>job.cat===category);
+
+displayJobs(result);
+
+window.scrollTo({
+top:document.getElementById("jobs").offsetTop-80,
+behavior:"smooth"
+});
+
+}
+
+function searchJobs(){
+
+const q=document
+.getElementById("searchBox")
+.value
+.toLowerCase()
+.trim();
+
+if(!q){
+
+showAll();
+
+return;
+
+}
+
+const result=jobs.filter(job=>
+(job.title+" "+job.cat+" "+job.org+" "+job.info)
+.toLowerCase()
+.includes(q)
+);
+
+displayJobs(result);
+
+}
+
+showAll();
+
+</script>
+
+</body>
+</html>
