@@ -7,14 +7,13 @@
 
 <style>
 :root{
-  color-scheme:light dark;
-  --bg:light-dark(#f5f8f6,#07110d);
-  --panel:light-dark(#fff,#0d1b15);
-  --panel2:light-dark(#edf4ef,#14261d);
-  --text:light-dark(#142019,#f3f5ef);
-  --muted:light-dark(#637068,#aeb9b1);
-  --line:light-dark(#d8e2da,#294337);
-  --accent:#16864a;
+  --bg:#f5f8f6;
+  --panel:#fff;
+  --panel2:#edf4ef;
+  --text:#142019;
+  --muted:#637068;
+  --line:#d8e2da;
+  --green:#16864a;
   --gold:#d9b24c;
 }
 
@@ -22,298 +21,280 @@
 
 body{
   margin:0;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+  font-family:Arial,system-ui,sans-serif;
   background:var(--bg);
-  color:var(--text)
-}
-
-#app{
-  min-height:100vh;
-  background:radial-gradient(circle at 90% 0%,#24603f 0,transparent 32%),var(--bg)
+  color:var(--text);
 }
 
 header{
-  padding:16px 6vw;
+  padding:15px 6vw;
+  background:#fff;
   border-bottom:1px solid var(--line);
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:16px;
+  gap:15px;
   position:sticky;
   top:0;
-  z-index:5;
-  background:color-mix(in srgb,var(--bg) 92%,transparent);
-  backdrop-filter:blur(12px)
+  z-index:10;
 }
 
 .brand{
   display:flex;
-  gap:11px;
   align-items:center;
-  font-weight:950
+  gap:10px;
+  font-weight:900;
 }
 
 .logo{
   width:44px;
   height:44px;
-  border-radius:13px;
-  background:linear-gradient(145deg,#16864a,#0b4b2b);
+  border-radius:12px;
+  background:linear-gradient(145deg,#16864a,#07552d);
+  color:white;
   display:grid;
   place-items:center;
-  color:#fff;
-  font-size:22px
+  font-size:21px;
 }
 
 .tag{
   font-size:12px;
-  color:var(--muted)
+  color:var(--muted);
 }
 
 nav{
   display:flex;
   gap:6px;
-  overflow:auto
+  overflow:auto;
 }
 
 nav button{
   border:1px solid transparent;
   background:transparent;
-  color:var(--muted);
   padding:9px 12px;
   border-radius:10px;
   cursor:pointer;
-  font-weight:800;
-  white-space:nowrap
+  font-weight:700;
+  white-space:nowrap;
 }
 
-nav button.active,
-nav button:hover{
+nav button:hover,
+nav button.active{
   background:var(--panel2);
-  color:var(--text);
-  border-color:var(--line)
+  border-color:var(--line);
 }
 
 main{
   max-width:1150px;
   margin:auto;
-  padding:30px 6vw 55px
+  padding:30px 6vw 50px;
 }
 
 .hero{
   border:1px solid var(--line);
-  border-radius:26px;
+  border-radius:25px;
   padding:36px;
-  background:linear-gradient(145deg,var(--panel),var(--panel2));
-  box-shadow:0 18px 60px #0002
+  background:linear-gradient(145deg,#fff,#edf4ef);
+  box-shadow:0 15px 50px #0001;
 }
 
 .eyebrow{
+  color:var(--green);
   font-size:12px;
   letter-spacing:2px;
   font-weight:900;
-  color:var(--accent)
 }
 
 h1{
   font-size:clamp(38px,6vw,68px);
-  line-height:.98;
-  margin:12px 0
+  line-height:1;
+  margin:12px 0;
 }
 
 .hero p{
   max-width:720px;
   color:var(--muted);
-  line-height:1.65
+  line-height:1.6;
 }
 
 .tri{
-  display:flex;
   width:180px;
   height:7px;
+  display:flex;
   overflow:hidden;
   border-radius:8px;
-  margin:20px 0
+  margin:20px 0;
 }
 
 .tri i{flex:1}
 .s{background:#e8752f}
-.w{background:#fff}
+.w{background:white}
 .g{background:#13864b}
 
 .search{
   display:flex;
   gap:10px;
-  margin-top:20px
+  margin-top:20px;
 }
 
 .search input{
   flex:1;
-  min-width:0;
   padding:14px;
   border:1px solid var(--line);
   border-radius:12px;
-  background:var(--panel);
-  color:var(--text);
-  font-size:16px
+  font-size:16px;
 }
 
 .btn{
   border:0;
-  border-radius:12px;
-  padding:12px 16px;
+  border-radius:11px;
+  padding:11px 15px;
   font-weight:900;
-  cursor:pointer
+  cursor:pointer;
 }
 
 .primary{
   background:var(--gold);
-  color:#111
+  color:#111;
 }
 
 .green{
-  background:var(--accent);
-  color:#fff
+  background:var(--green);
+  color:white;
 }
 
 .ghost{
   background:var(--panel2);
   border:1px solid var(--line);
-  color:var(--text)
 }
 
 .section{
-  margin-top:24px
-}
-
-.section h2{
-  margin:0 0 14px
+  margin-top:25px;
 }
 
 .filters{
   display:flex;
   gap:8px;
   overflow:auto;
-  padding-bottom:4px
+  padding-bottom:5px;
 }
 
 .filter{
-  border:1px solid var(--line);
-  background:var(--panel);
-  color:var(--text);
   padding:9px 13px;
-  border-radius:999px;
+  border-radius:20px;
+  border:1px solid var(--line);
+  background:white;
   cursor:pointer;
-  white-space:nowrap
+  white-space:nowrap;
 }
 
 .filter.active{
-  background:var(--accent);
-  color:#fff;
-  border-color:var(--accent)
+  background:var(--green);
+  color:white;
 }
 
 .jobs{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:14px
+  gap:14px;
 }
 
 .job{
-  background:var(--panel);
+  background:white;
   border:1px solid var(--line);
   border-radius:18px;
-  padding:20px
+  padding:20px;
 }
 
 .jobtop{
   display:flex;
   justify-content:space-between;
-  gap:10px
+  gap:10px;
 }
 
 .badge{
-  font-size:11px;
   background:var(--panel2);
+  color:var(--green);
   padding:6px 9px;
-  border-radius:999px;
-  color:var(--accent);
-  font-weight:900
+  border-radius:20px;
+  font-size:11px;
+  font-weight:900;
 }
 
 .job h3{
-  margin:12px 0 6px
+  margin:12px 0 7px;
 }
 
 .meta{
   color:var(--muted);
   font-size:13px;
-  line-height:1.6
+  line-height:1.6;
 }
 
 .actions{
   display:flex;
   gap:8px;
-  margin-top:15px
+  margin-top:15px;
 }
 
 .page{
-  display:none
+  display:none;
 }
 
 .page.show{
-  display:block
+  display:block;
 }
 
 .notice{
-  padding:15px;
+  padding:16px;
   border-left:4px solid var(--gold);
   background:var(--panel2);
   border-radius:10px;
   color:var(--muted);
-  line-height:1.55
+  line-height:1.6;
 }
 
 .empty{
   padding:25px;
   text-align:center;
-  background:var(--panel);
+  background:white;
   border:1px dashed var(--line);
   border-radius:16px;
-  color:var(--muted)
+  color:var(--muted);
 }
 
 footer{
   text-align:center;
   color:var(--muted);
   font-size:12px;
-  margin-top:28px
+  margin-top:30px;
 }
 
 @media(max-width:760px){
   header{
     padding:12px 14px;
+    flex-direction:column;
     align-items:flex-start;
-    flex-direction:column
   }
 
   main{
-    padding:20px 14px 40px
+    padding:20px 14px 40px;
   }
 
   .hero{
-    padding:24px
+    padding:24px;
   }
 
   .jobs{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .search{
-    flex-direction:column
+    flex-direction:column;
   }
 
   .search button{
-    width:100%
+    width:100%;
   }
 }
 </style>
@@ -328,7 +309,7 @@ footer{
     <div class="logo">💼</div>
     <div>
       JOB ALERT INDIA
-      <div class="tag">Free job notification helper</div>
+      <div class="tag">Free Job Notification Website</div>
     </div>
   </div>
 
@@ -352,7 +333,7 @@ footer{
 
     <h1>
       Latest Job<br>
-      <span style="color:var(--accent)">Notifications</span>
+      <span style="color:var(--green)">Notifications</span>
     </h1>
 
     <div class="tri">
@@ -362,20 +343,13 @@ footer{
     </div>
 
     <p>
-      Government, Railway, Bank, Police, Defence, Odisha aur Private
-      job notifications ko ek jagah dikhane ke liye free website.
+      Government, Railway, Bank, Police, Defence, Odisha
+      aur Private jobs ko ek jagah dikhane ke liye free job alert website.
     </p>
 
     <div class="search">
-      <input
-        id="homeSearch"
-        placeholder="Job search karo..."
-      >
-
-      <button
-        class="btn primary"
-        onclick="searchJobs()"
-      >
+      <input id="homeSearch" placeholder="Job search karo...">
+      <button class="btn primary" onclick="searchJobs()">
         Search Jobs →
       </button>
     </div>
@@ -461,73 +435,62 @@ footer{
         <div class="meta">
           Central and state government opportunities.
         </div>
-        <button
-          class="btn green"
+        <button class="btn green"
           onclick="filterJobs('Government')">
           View Jobs
         </button>
       </div>
-
 
       <div class="job">
         <h3>🚆 Railway Jobs</h3>
         <div class="meta">
           Railway recruitment notifications and updates.
         </div>
-        <button
-          class="btn green"
+        <button class="btn green"
           onclick="filterJobs('Railway')">
           View Jobs
         </button>
       </div>
 
-
       <div class="job">
         <h3>🏦 Bank Jobs</h3>
         <div class="meta">
-          Banking and finance recruitment.
+          Banking recruitment and career opportunities.
         </div>
-        <button
-          class="btn green"
+        <button class="btn green"
           onclick="filterJobs('Bank')">
           View Jobs
         </button>
       </div>
-
 
       <div class="job">
         <h3>👮 Police Jobs</h3>
         <div class="meta">
           Police and uniformed service opportunities.
         </div>
-        <button
-          class="btn green"
+        <button class="btn green"
           onclick="filterJobs('Police')">
           View Jobs
         </button>
       </div>
 
-
       <div class="job">
         <h3>🎖️ Defence Jobs</h3>
         <div class="meta">
-          Defence recruitment and preparation updates.
+          Defence recruitment and preparation.
         </div>
-        <button
-          class="btn green"
+        <button class="btn green"
           onclick="filterJobs('Defence')">
           View Jobs
         </button>
       </div>
-
 
       <div class="job">
         <h3>🌾 Odisha Jobs</h3>
         <div class="meta">
           Odisha-focused recruitment notifications.
         </div>
-        <button
-          class="btn green"
+        <button class="btn green"
           onclick="filterJobs('Odisha')">
           View Jobs
         </button>
@@ -547,19 +510,30 @@ footer{
     <h2>ℹ️ About This Website</h2>
 
     <div class="notice">
-      <b>Free website:</b>
-      Yahan verified job notifications, vacancy, eligibility,
+
+      <b>Free Job Alert Website</b><br><br>
+
+      Yahan job notification, vacancy, eligibility,
       last date aur official apply link dikhaya ja sakta hai.
-      Ye independent website hai; government website nahi.
+
+      <br><br>
+
+      Ye independent website hai.
+      Ye Government of India ki official website nahi hai.
+
     </div>
 
     <br>
 
     <div class="notice">
-      <b>Important:</b>
-      Real job updates ke liye official recruitment websites se
-      information verify karke hi publish karni chahiye.
-      Fake apply links nahi lagane chahiye.
+
+      <b>⚠️ Important</b><br><br>
+
+      Apply karne se pehle hamesha official recruitment
+      website par notification verify karein.
+
+      Fake apply links use nahi kiye jayenge.
+
     </div>
 
   </div>
@@ -568,12 +542,11 @@ footer{
 
 
 <footer>
-  Independent job information helper • Free website •
-  Always verify with official recruitment source
+  Independent Job Information Helper • Free Website •
+  Always Verify Official Source
 </footer>
 
 </main>
-
 </div>
 
 
@@ -582,183 +555,120 @@ footer{
 const jobs = [
 
 {
-title:"SSC Recruitment Notification",
-cat:"Government",
-org:"Staff Selection Commission",
-last:"Verify official notice",
-desc:"Official SSC recruitment portal. Vacancy aur eligibility official notice se verify karein.",
-url:"https://ssc.gov.in/"
+title:'SSC Recruitment',
+cat:'Government',
+org:'Staff Selection Commission',
+last:'Check official notification',
+desc:'SSC ke official recruitment portal par current vacancy check karein.',
+url:'https://ssc.gov.in/'
 },
 
 {
-title:"UPSC Recruitment Notification",
-cat:"Government",
-org:"Union Public Service Commission",
-last:"Verify official notice",
-desc:"UPSC official recruitment portal. Current notification official website par check karein.",
-url:"https://upsc.gov.in/"
+title:'UPSC Recruitment',
+cat:'Government',
+org:'Union Public Service Commission',
+last:'Check official notification',
+desc:'UPSC ke official portal par current examinations aur recruitment check karein.',
+url:'https://upsc.gov.in/'
 },
 
 {
-title:"State Government Job Notification",
-cat:"Government",
-org:"State Government Recruitment",
-last:"Verify official notice",
-desc:"State government recruitment information official portal se verify karein.",
-url:"https://www.india.gov.in/"
+title:'Railway Recruitment',
+cat:'Railway',
+org:'Railway Recruitment Board',
+last:'Check official notification',
+desc:'Railway recruitment ke liye official RRB website check karein.',
+url:'https://www.rrbapply.gov.in/'
 },
 
 {
-title:"RRB Railway Recruitment",
-cat:"Railway",
-org:"Railway Recruitment Board",
-last:"Verify official notice",
-desc:"Railway recruitment ke liye official RRB portal check karein.",
-url:"https://www.rrbapply.gov.in/"
+title:'Railway Bhubaneswar',
+cat:'Railway',
+org:'RRB Bhubaneswar',
+last:'Check official notification',
+desc:'Odisha Railway recruitment ke official portal par notification check karein.',
+url:'https://www.rrbbbs.gov.in/'
 },
 
 {
-title:"Railway Group D Notification",
-cat:"Railway",
-org:"Indian Railways",
-last:"Verify official notice",
-desc:"Railway Group D vacancy ke liye official notification verify karein.",
-url:"https://www.rrbapply.gov.in/"
+title:'SBI Recruitment',
+cat:'Bank',
+org:'State Bank of India',
+last:'Check current opening',
+desc:'SBI Careers page par current jobs aur recruitment check karein.',
+url:'https://sbi.co.in/web/careers/'
 },
 
 {
-title:"Railway Technician Recruitment",
-cat:"Railway",
-org:"Railway Recruitment Board",
-last:"Verify official notice",
-desc:"Railway Technician recruitment details official portal par verify karein.",
-url:"https://www.rrbapply.gov.in/"
+title:'IBPS Recruitment',
+cat:'Bank',
+org:'Institute of Banking Personnel Selection',
+last:'Check official notification',
+desc:'Banking recruitment ke liye official IBPS notification check karein.',
+url:'https://www.ibps.in/'
 },
 
 {
-title:"SBI Recruitment Notification",
-cat:"Bank",
-org:"State Bank of India",
-last:"Verify official opening",
-desc:"SBI Careers page par current recruitment openings check karein.",
-url:"https://sbi.co.in/web/careers/"
+title:'Odisha Police Recruitment',
+cat:'Police',
+org:'Odisha Police',
+last:'Check official notification',
+desc:'Odisha Police recruitment ke liye official website check karein.',
+url:'https://odishapolice.gov.in/'
 },
 
 {
-title:"IBPS Recruitment Notification",
-cat:"Bank",
-org:"Institute of Banking Personnel Selection",
-last:"Verify official notice",
-desc:"IBPS recruitment notification official website par check karein.",
-url:"https://www.ibps.in/"
+title:'Indian Army Recruitment',
+cat:'Defence',
+org:'Indian Army',
+last:'Check official notification',
+desc:'Army recruitment ke liye official Join Indian Army portal check karein.',
+url:'https://joinindianarmy.nic.in/'
 },
 
 {
-title:"Bank Clerk Recruitment",
-cat:"Bank",
-org:"Bank Recruitment",
-last:"Verify official notice",
-desc:"Bank clerk recruitment ke liye official notification verify karein.",
-url:"https://www.ibps.in/"
+title:'Indian Air Force Recruitment',
+cat:'Defence',
+org:'Indian Air Force',
+last:'Check official notification',
+desc:'Air Force recruitment ke liye official portal check karein.',
+url:'https://agnipathvayu.cdac.in/'
 },
 
 {
-title:"Police Constable Recruitment",
-cat:"Police",
-org:"Police Recruitment",
-last:"Verify official notice",
-desc:"Police constable recruitment ke liye apne state ki official police website check karein.",
-url:"https://odishapolice.gov.in/"
+title:'Indian Navy Recruitment',
+cat:'Defence',
+org:'Indian Navy',
+last:'Check official notification',
+desc:'Navy recruitment ke liye official website check karein.',
+url:'https://www.joinindiannavy.gov.in/'
 },
 
 {
-title:"State Police Recruitment",
-cat:"Police",
-org:"State Police",
-last:"Verify official notice",
-desc:"State police recruitment information official police portal se verify karein.",
-url:"https://odishapolice.gov.in/"
+title:'Odisha Government Jobs',
+cat:'Odisha',
+org:'Government of Odisha',
+last:'Check official notification',
+desc:'Odisha government departments ki recruitment information check karein.',
+url:'https://odisha.gov.in/'
 },
 
 {
-title:"Police SI Recruitment",
-cat:"Police",
-org:"Police Sub Inspector Recruitment",
-last:"Verify official notice",
-desc:"Police SI recruitment notification official website par check karein.",
-url:"https://odishapolice.gov.in/"
+title:'India Government Jobs',
+cat:'Government',
+org:'Government of India',
+last:'Check official notification',
+desc:'Government services aur recruitment information ke liye official portal.',
+url:'https://www.india.gov.in/'
 },
 
 {
-title:"Indian Army Recruitment",
-cat:"Defence",
-org:"Indian Army",
-last:"Verify official notice",
-desc:"Indian Army recruitment information aur application official portal par check karein.",
-url:"https://joinindianarmy.nic.in/"
-},
-
-{
-title:"Indian Air Force Recruitment",
-cat:"Defence",
-org:"Indian Air Force",
-last:"Verify official notice",
-desc:"Indian Air Force recruitment ke liye official recruitment portal verify karein.",
-url:"https://agnipathvayu.cdac.in/"
-},
-
-{
-title:"Indian Navy Recruitment",
-cat:"Defence",
-org:"Indian Navy",
-last:"Verify official notice",
-desc:"Indian Navy recruitment information official website par check karein.",
-url:"https://www.joinindiannavy.gov.in/"
-},
-
-{
-title:"Odisha Government Job",
-cat:"Odisha",
-org:"Government of Odisha",
-last:"Verify official notice",
-desc:"Odisha government recruitment notification official portal se verify karein.",
-url:"https://odisha.gov.in/"
-},
-
-{
-title:"Odisha Police Recruitment",
-cat:"Odisha",
-org:"Odisha Police",
-last:"Verify official notice",
-desc:"Odisha Police recruitment information official website par check karein.",
-url:"https://odishapolice.gov.in/"
-},
-
-{
-title:"Odisha District Job",
-cat:"Odisha",
-org:"Odisha District Administration",
-last:"Verify official notice",
-desc:"District-level vacancy ke liye concerned district official website check karein.",
-url:"https://odisha.gov.in/"
-},
-
-{
-title:"Private Company Recruitment",
-cat:"Private",
-org:"Private Sector",
-last:"Employer link required",
-desc:"Private job ke liye sirf verified employer ka official apply link use karein.",
-url:""
-},
-
-{
-title:"Private Office Jobs",
-cat:"Private",
-org:"Private Sector",
-last:"Employer link required",
-desc:"Private office vacancy ke liye verified company website par apply karein.",
-url:""
+title:'Private Company Jobs',
+cat:'Private',
+org:'Private Sector',
+last:'Employer link required',
+desc:'Sirf verified company/employer ka official apply link add kiya jayega.',
+url:''
 }
 
 ];
@@ -766,12 +676,12 @@ url:""
 
 function render(list=jobs){
 
-  const el=document.getElementById("jobsList");
+  const el=document.getElementById('jobsList');
 
   if(!list.length){
 
     el.innerHTML=
-      '<div class="empty">Is category me abhi job listing nahi hai.</div>';
+    '<div class="empty">Is category me abhi job listing nahi hai.</div>';
 
     return;
   }
@@ -787,7 +697,7 @@ function render(list=jobs){
         </span>
 
         <span class="badge">
-          NEW
+          JOB
         </span>
 
       </div>
@@ -799,11 +709,9 @@ function render(list=jobs){
       <div class="meta">
 
         <b>${j.org}</b>
-
         <br>
 
         ${j.desc}
-
         <br>
 
         📅 ${j.last}
@@ -815,20 +723,24 @@ function render(list=jobs){
         <button
           class="btn ghost"
           onclick="openOfficial('${j.url}')">
+
           Official Details
+
         </button>
 
         <button
           class="btn primary"
           onclick="openOfficial('${j.url}')">
+
           Apply Online
+
         </button>
 
       </div>
 
     </article>
 
-  `).join("");
+  `).join('');
 
 }
 
@@ -839,14 +751,14 @@ function openOfficial(url){
 
     window.open(
       url,
-      "_blank",
-      "noopener"
+      '_blank',
+      'noopener'
     );
 
   }else{
 
     alert(
-      "Is private job ke liye verified employer link abhi available nahi hai."
+      'Is private job ke liye verified employer link abhi available nahi hai.'
     );
 
   }
@@ -857,29 +769,29 @@ function openOfficial(url){
 function show(id){
 
   document
-    .querySelectorAll(".page")
+    .querySelectorAll('.page')
     .forEach(x=>{
       x.classList.toggle(
-        "show",
+        'show',
         x.id===id
       );
     });
 
   document
-    .querySelectorAll("nav button")
+    .querySelectorAll('nav button')
     .forEach(x=>{
       x.classList.toggle(
-        "active",
+        'active',
         x.dataset.page===id
       );
     });
 
   window.scrollTo({
     top:0,
-    behavior:"smooth"
+    behavior:'smooth'
   });
 
-  if(id==="jobs"){
+  if(id==='jobs'){
     render();
   }
 
@@ -889,30 +801,22 @@ function show(id){
 function filterJobs(cat,btn){
 
   document
-    .querySelectorAll(".filter")
+    .querySelectorAll('.filter')
     .forEach(x=>{
-      x.classList.remove("active");
+      x.classList.remove('active');
     });
 
   if(btn){
-    btn.classList.add("active");
+    btn.classList.add('active');
   }
 
-  show("jobs");
+  show('jobs');
 
-  if(cat==="All"){
-
-    render(jobs);
-
-  }else{
-
-    render(
-      jobs.filter(
-        j=>j.cat===cat
-      )
-    );
-
-  }
+  render(
+    cat==='All'
+      ? jobs
+      : jobs.filter(j=>j.cat===cat)
+  );
 
 }
 
@@ -921,46 +825,38 @@ function searchJobs(){
 
   const q=
     document
-      .getElementById("homeSearch")
+      .getElementById('homeSearch')
       .value
       .toLowerCase()
       .trim();
 
-  show("jobs");
+  show('jobs');
 
-  if(!q){
-
-    render(jobs);
-
-    return;
-  }
-
-  const result=
-    jobs.filter(j=>
-      (
-        j.title+
-        j.cat+
-        j.org+
-        j.desc
-      )
-      .toLowerCase()
-      .includes(q)
-    );
-
-  render(result);
+  render(
+    q
+      ? jobs.filter(j=>
+          (
+            j.title+
+            j.cat+
+            j.org+
+            j.desc
+          )
+          .toLowerCase()
+          .includes(q)
+        )
+      : jobs
+  );
 
 }
 
 
 document
-  .querySelectorAll("nav button")
+  .querySelectorAll('nav button')
   .forEach(b=>{
-
     b.addEventListener(
-      "click",
+      'click',
       ()=>show(b.dataset.page)
     );
-
   });
 
 
