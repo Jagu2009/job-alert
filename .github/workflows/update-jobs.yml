@@ -1,0 +1,13 @@
+name: Update Jobs
+
+on:
+  schedule:
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update job data
+        run: echo "Job update system started"
